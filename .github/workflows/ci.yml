@@ -8,35 +8,13 @@ on:
 
 jobs:
   e2e:
-    name: Build and run e2e tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Run a one-line script
-        run: docker-compose --file tools/docker/docker-compose.e2e.yml up --build
-        
-      - name: Upload Test Results
-        if: always()
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          name: test_results
-          path: test-results
-          retention-days: 45
+    uses: ./.github/workflows/execute-docker-compose-and-publish-results.yml
+    with:
+      tests-type: e2e
+      tests-result-path: test-results
 
   api-tests:
-    name: Build and run api tests
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Run a one-line script
-        run: docker-compose --file tools/docker/docker-compose.api.yml up --build
-        
-      - name: Upload Test Results
-        if: always()
-        uses: actions/upload-artifact@v3.1.0
-        with:
-          name: test_results_api
-          path: test-results-api
-          retention-days: 45 
+    uses: ./.github/workflows/execute-docker-compose-and-publish-results.yml
+    with:
+      tests-type: api
+      tests-result-path: test-results-api
