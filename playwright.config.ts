@@ -8,5 +8,6 @@ const config: PlaywrightTestConfig = {
   },
   timeout: 60000,
   workers: 1, // All tests are run one by one
+  reporter: [['html', { outputFolder: 'test-results/test-report' }]],
 };
 export default config;
