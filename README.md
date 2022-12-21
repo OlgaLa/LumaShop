@@ -43,7 +43,7 @@ Test resuslt traces are stored in the folder `test-results`. To see the trace yo
 
 ## View the test report 
 
-The test report is stored in the folder `test-results/test-report`. It is a HTML report. To se it you should go to the test report folder and open index.html in a browser.
+The test report is stored in the folder `test-results/test-report`. It is a HTML report. To se it you should go to the test report folder and open `index.html` in a browser.
 
 ## View the test report produced by CI 
 
