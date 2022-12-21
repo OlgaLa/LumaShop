@@ -14,7 +14,6 @@ export class ProductsPage {
     readonly productColor = 'div.swatch-option.color';
     readonly quantityField = 'input.input-text.qty';
     readonly successMessage = 'div.message-success.success div';
-    readonly errorMessage = 'div.mage-error';
 
     getProductByName(productName: string) {
         return `${this.productLink}[title="${productName}"]`;
@@ -82,14 +81,5 @@ export class ProductsPage {
             await this.page.fill(this.quantityField, quantity.toString());
         }
         await this.clickAddToCartButton();
-    }
-
-    async getErrorsAmount() {
-        return (await this.page.$$(this.errorMessage)).length;
-    }
-
-    async getErrorMessage(number: number = 0) {
-        let messages = await this.page.locator(this.errorMessage);
-        return messages.nth(number).textContent();
     }
 }

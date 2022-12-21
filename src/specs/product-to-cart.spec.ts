@@ -9,8 +9,6 @@ test.describe('Product page', async () => {
     let comEl: CommonElements;
     let productsPage: ProductsPage;
 
-    const REQUIRED_FIELD_ERROR_MESSAGE = 'This is a required field.';
-
     test.beforeEach(async ({page}) => {
       homePage = new HomePage(page);
       comEl = new CommonElements(page);
@@ -43,9 +41,9 @@ test.describe('Product page', async () => {
       
       await productsPage.clickAddToCartButton();
       expect(await comEl.getPageTitle()).toBe(products[0]);
-      expect(await productsPage.getErrorsAmount()).toBe(2);
-      expect(await productsPage.getErrorMessage()).toBe(REQUIRED_FIELD_ERROR_MESSAGE);
-      expect(await productsPage.getErrorMessage(1)).toBe(REQUIRED_FIELD_ERROR_MESSAGE);
+      expect(await comEl.getErrorsAmount()).toBe(2);
+      expect(await comEl.getErrorMessage('field')).toBe(comEl.REQUIRED_FIELD_ERROR_MESSAGE);
+      expect(await comEl.getErrorMessage('field', 1)).toBe(comEl.REQUIRED_FIELD_ERROR_MESSAGE);
       
     }); 
 });

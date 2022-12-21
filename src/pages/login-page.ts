@@ -11,14 +11,7 @@ export class LoginPage {
     readonly signInButton: string = 'button.login';
     readonly usernameInput = 'input#email';
     readonly passwordInput = 'input#pass';
-    readonly errorMessageForPage = 'div.message-error div';
-    // readonly errorMessageForField = 'div.mage-error';
-
-    /*readonly errorMessages : Map<string, string> = new Map<string, string>([
-        ['page', this.errorMessageForPage],
-        // ['field', this.errorMessageForField]
-    ]); */
-
+    
     selectGeoLocation(geoLocation: string) {
         return this.page.locator(`a.fxg-geo-locator__button[aria-label="${geoLocation}"]`);
     }
@@ -37,9 +30,5 @@ export class LoginPage {
         await this.page.fill(this.usernameInput, username);
         await this.page.fill(this.passwordInput, password);
         await this.page.click(this.signInButton);
-    }
-
-    async getErrorMessage(forElement: 'page' | 'field') {
-        return this.page.innerText(this.errorMessageForPage);
     }
 }

@@ -32,15 +32,14 @@ test.describe('Login', async () => {
 
   test.skip('User can not login with incorrect password', async () => {
     await loginPage.login(USERNAME, `${PASSWORD}a`);
-    let errorMessage = await loginPage.getErrorMessage('page');
+    let errorMessage = await comEl.getErrorMessage('page');
     expect(errorMessage).toBe(LOGIN_ERROR);
     expect(await comEl.getPageTitle()).toBe(LOGIN_PAGE_TITLE);
   }); 
 
   test('User can not login with empty username', async () => {
-    await loginPage.login('', PASSWORD);
-    let errorMessage = await loginPage.getErrorMessage('page');
-    expect(errorMessage).toBe(EMPTY_FIELD_ERROR);
+    await loginPage.login('     ', PASSWORD);
+    expect(await comEl.getErrorMessage('field')).toBe(comEl.REQUIRED_FIELD_ERROR_MESSAGE);
     expect(await comEl.getPageTitle()).toBe(LOGIN_PAGE_TITLE);
   }); 
 
