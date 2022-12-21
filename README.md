@@ -43,5 +43,5 @@ Test resuslt traces are stored in the folder `test-results`. To see the trace yo
 
 This repository contains a GitHub Actions build pipeline which is triggered on every push. It executes `npx playwright test` command in a docker container, and then uploads test reports as build artifacts. 
 
-You can find and download them by navigating to https://github.com/OlgaLa/ and selecting the latest run log. The artifacts would be located in **Artifacts** section at the bottom of the page.
+You can find and download them by navigating to https://github.com/OlgaLa/LumaShop/actions and selecting the latest run log. The artifacts would be located in **Artifacts** section at the bottom of the page.
 
