@@ -1,0 +1,16 @@
+models/PeopleResponse.java
+ models.PeopleResponse
+models/RootResponse.java
+ models.RootResponse
+models/CharacterResponse.java
+ models.CharacterResponse
+constants/Resources.java
+ constants.Resources
+tests/PeopleTest.java
+ tests.PeopleTest
+helpers/StarWarsApiClient.java
+ helpers.StarWarsApiClient
+tests/RootTest.java
+ tests.RootTest
+tests/TestBase.java
+ tests.TestBase

@@ -11,10 +11,21 @@
 # Built Visual Studio Code Extensions
 *.vsix
 
+
 .DS_Store
 
 node_modules/
 
 test-results/
+
+# java: gradle + idea
+test-results-api/
+.gradle/
+/build/
+.idea/
+*.class
+*.jar
+!gradle-wrapper.jar
+gradle-app.setting
 
 .env

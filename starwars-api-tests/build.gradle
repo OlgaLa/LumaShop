@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
+     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
+     testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.3.0'
+     implementation group: 'com.google.code.gson', name: 'gson', version: '2.10'
+     implementation group: "com.github.java-json-tools", name: "json-schema-validator", version: "2.2.14"
+}
+
+test {
+    environment = [ BASE_URL: 'https://swapi.dev/api/' ]
+    useJUnitPlatform()
+}

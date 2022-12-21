@@ -1,0 +1,11 @@
+version: '3.7'
+
+services: 
+
+  api-test: 
+    build: 
+      dockerfile: ../tools/docker/api-tests/Dockerfile
+      context: ${PWD}/starwars-api-tests
+    command: gradle test
+    volumes: 
+      - ${PWD}/test-results-api:/build/reports/tests

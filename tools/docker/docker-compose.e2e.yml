@@ -4,8 +4,8 @@ services:
 
   e2e: 
     build: 
-      dockerfile: tools/docker/e2e/Dockerfile
-      context: ${PWD}
+      dockerfile: ../tools/docker/e2e/Dockerfile
+      context: ${PWD}/luma-shop-e2e
     command: npx playwright test
     volumes: 
        - ${PWD}/test-results:/build/test-results
