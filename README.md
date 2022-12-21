@@ -9,7 +9,9 @@ The project contains UI tests for [a e-commerce site](https://magento.softwarete
 3. Run `npm install`
 4. Run the command in terminal from the project folder:
 
-`npx playwright test`
+```bash
+npx playwright test
+```
 
 If you want to run Chromium not in a headless mode just add `--headed` to the previous command:
 
@@ -38,6 +40,10 @@ If you are going to run the tests on Windows machine, please change `${PWD}` in 
 Test resuslt traces are stored in the folder `test-results`. To see the trace you should go to one of the test folders and run the following command:
 
 `npx playwright show-trace trace.zip` 
+
+## View the test report 
+
+The test report is stored in the folder `test-results/test-report`. It is a HTML report. To se it you should go to the test report folder and open index.html in a browser.
 
 ## View the test report produced by CI 
 
