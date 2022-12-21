@@ -7,8 +7,8 @@ on:
       tests-result-path:
         required: true
         type: string
-
-execute-tests:
+jobs:
+  execute-tests:
     name: Build and run ${{ inputs.tests-type }} tests
     runs-on: ubuntu-latest
     steps:
