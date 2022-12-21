@@ -26,9 +26,6 @@ export class CheckoutPage {
     readonly continieShoppingButton = 'a.action.continue';
     readonly emailInfo = 'div#registration div p span';
 
-    /*const userForm = this.page.locator('form.form.form-shipping-address');
-    const firstNameInput = this.userForm.locator(); */
-
     async clickProcessCheckout() {
         await this.page.waitForSelector(this.subtotalPrice);
         await this.page.click(this.processCheckoutButton);
@@ -64,7 +61,7 @@ export class CheckoutPage {
 
     async finishChechoutInfo(checkoutInfo: CheckoutInfo) {
         await this.fillChechoutInfo(checkoutInfo);
-        await sleep(3000); 
+        await sleep(3000); // TO DO: find a way to wait when the shipping methods are updated
         // let amount = await (await this.page.$$(this.shippingMethods)).length
        // await this.page.click(this.shippingMethod);
         await this.page.click(this.nextButton);
