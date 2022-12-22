@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/playwright
+FROM mcr.microsoft.com/playwright:v1.29.0-focal
 
 COPY . /build
 WORKDIR /build
