@@ -12,11 +12,11 @@ permissions:
   id-token: write
 
 jobs:
-  e2e:
-    uses: ./.github/workflows/execute-docker-compose-and-publish-results.yml
-    with:
-      tests-type: e2e
-      tests-result-path: test-results
+  # e2e:
+  #   uses: ./.github/workflows/execute-docker-compose-and-publish-results.yml
+  #   with:
+  #     tests-type: e2e
+  #     tests-result-path: test-results
 
   api-tests:
     uses: ./.github/workflows/execute-docker-compose-and-publish-results.yml
@@ -24,10 +24,28 @@ jobs:
       tests-type: api
       tests-result-path: test-results-api
 
-  deploy_results:
+  deploy-results:
+    name: Prepare test reports
     runs-on: Ubuntu-latest
     needs: 
-      - e2e
+    #  - e2e
       - api-tests
     steps:
-      - run: echo 'deployment'
+      - run : |
+        mkdir _site
+        echo '<html><body><ul>
+                <li><a href="/api">api test results</a></li>
+                <li><a href="/web">web app test results</a></li>
+              </ul></body></html>' >> _site/intex.html
+      - uses: actions/download-artifact@v3.0.1
+        with:
+         name: test_results_api
+         path: _site/api/
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: _site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+
