@@ -36,6 +36,8 @@ You should see the following results:
 
 ![junit test results screenshot](../docs/test-results.png)
 
+**NOTE:** One of the tests is failing. This is expected because of this [issue](https://github.com/Juriy/swapi/issues/50).
+
 
 ## View the test report produced by CI 
 

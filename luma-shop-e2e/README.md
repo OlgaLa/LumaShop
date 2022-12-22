@@ -18,6 +18,11 @@ If you want to run Chromium not in a headless mode just add `--headed` to the pr
 ```bash
 npx playwright test --headed
 ```
+By default the tests are run in parallel with 4 workers. If you want to override it use the following command:
+
+```bash
+npx playwright test --headed --workers=1
+```
 
 ## How to run tests in Docker
 
