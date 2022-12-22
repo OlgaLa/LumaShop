@@ -31,19 +31,23 @@ jobs:
     name: Prepare test reports
     runs-on: Ubuntu-latest
     needs: 
-    #  - e2e
+      - e2e
       - api-tests
     steps:
       - run : |
           mkdir _site
           echo '<html><body><ul>
                 <li><a href="api/test">api test results</a></li>
-                <li><a href="web">web app test results</a></li>
+                <li><a href="web/test-report">web app test results</a></li>
               </ul></body></html>' >> _site/index.html
       - uses: actions/download-artifact@v3.0.1
         with:
          name: test_results_api
          path: _site/api/
+      - uses: actions/download-artifact@v3.0.1
+        with:
+         name: test-results
+         path: _site/web/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
