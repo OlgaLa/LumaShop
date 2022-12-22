@@ -25,6 +25,7 @@ jobs:
       tests-result-path: test-results-api
 
   deploy_results:
+    runs-on: Ubuntu-latest
     needs: 
       - e2e
       - api-tests
