@@ -25,6 +25,9 @@ jobs:
       tests-result-path: test-results-api
 
   deploy-results:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     name: Prepare test reports
     runs-on: Ubuntu-latest
     needs: 
@@ -34,9 +37,9 @@ jobs:
       - run : |
           mkdir _site
           echo '<html><body><ul>
-                <li><a href="/api">api test results</a></li>
-                <li><a href="/web">web app test results</a></li>
-              </ul></body></html>' >> _site/intex.html
+                <li><a href="api/test">api test results</a></li>
+                <li><a href="web">web app test results</a></li>
+              </ul></body></html>' >> _site/index.html
       - uses: actions/download-artifact@v3.0.1
         with:
          name: test_results_api
