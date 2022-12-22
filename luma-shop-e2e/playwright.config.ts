@@ -7,7 +7,7 @@ const config: PlaywrightTestConfig = {
     trace: 'on',
   },
   timeout: 60000,
-  workers: 1, // All tests are run one by one
+  workers: 4, 
   reporter: [['html', { outputFolder: 'test-results/test-report' }]],
 };
 export default config;
