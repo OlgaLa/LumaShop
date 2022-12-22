@@ -24,6 +24,9 @@ test.describe('Checkout', async () => {
       zipCode: "223710"
     }
 
+    const PAYMENT_METHOD_PAGE_TITLE = 'Payment Method';
+    const FINAL_PAGE_TITLE = 'Thank you for your purchase!';
+
     test.beforeEach(async ({page}) => {
       homePage = new HomePage(page);
       comEl = new CommonElements(page);
@@ -31,7 +34,7 @@ test.describe('Checkout', async () => {
       checkoutPage = new CheckoutPage(page);
     });
 
-    test('User can process checkout', async () => {
+    test('process: finalize', async () => {
       const quantity = 3;
 
       await homePage.openHomePage();
@@ -49,9 +52,10 @@ test.describe('Checkout', async () => {
       expect(billingDetails).toContain(`${checkoutInfo.city}, ${checkoutInfo.zipCode}`);
       expect(billingDetails).toContain(checkoutInfo.country);
       expect(billingDetails).toContain(checkoutInfo.phone);
+      expect(await checkoutPage.getPaymentMethodTitle()).toBe(PAYMENT_METHOD_PAGE_TITLE);
 
       await checkoutPage.clickPlaceOrderButton();
       expect(await checkoutPage.getEmailAddressInPlacedOrderPage()).toContain(checkoutInfo.email);
-
+      expect(await comEl.getPageTitle()).toBe(FINAL_PAGE_TITLE);
     }); 
 });

@@ -35,7 +35,7 @@ test.describe('Search', async () => {
   }];
 
   tests.forEach(option => {
-    test(`User can search product: ${option.searchItem}`, async () => {
+    test(`by: ${option.searchItem}`, async () => {
       await homePage.openHomePage();
       await homePage.searchItem(option.searchItem);
       expect(await comEl.getPageTitle()).toBe(`Search results for: '${option.searchItem}'`);
@@ -44,12 +44,12 @@ test.describe('Search', async () => {
     });
   });
 
-  test('User can\'t search if a search query length is less then 3 symbols', async () => {
+  test('with a query which has the length less then 3 symbols', async () => {
     await homePage.openHomePage();
     await homePage.searchItem("pu");
     expect(await comEl.getPageTitle()).toBe(`Search results for: 'pu'`);
     expect(await searchResultPage.getShortSearchQueryMessage()).toContain(SEARCH_ERROR_MESSAGE);
-
+    expect(await productsPage.waitForProducts(0)).toBe(0);
   }); 
 
 });

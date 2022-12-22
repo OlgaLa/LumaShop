@@ -25,6 +25,7 @@ export class CheckoutPage {
     readonly billingAddressDetails = 'div.billing-address-details';
     readonly continieShoppingButton = 'a.action.continue';
     readonly emailInfo = 'div#registration div p span';
+    readonly paymentMethodTitle = 'div.payment-group div.step-title';
 
     async clickProcessCheckout() {
         await this.page.waitForSelector(this.subtotalPrice);
@@ -78,5 +79,9 @@ export class CheckoutPage {
     async getEmailAddressInPlacedOrderPage() {
         let email = await this.page.locator(this.emailInfo);
         return email.nth(1).textContent();
+    }
+
+    async getPaymentMethodTitle() {
+        return this.page.innerText(this.paymentMethodTitle);
     }
 }

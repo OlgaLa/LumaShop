@@ -1,6 +1,8 @@
 # LumaShop
 
-This directory contains a UI tests project for [an e-commerce site](https://magento.softwaretestingboard.com/). 
+This directory contains the E2E tests project for [an e-commerce site](https://magento.softwaretestingboard.com/). 
+
+Test cases for the E2E tests are [here](https://docs.google.com/spreadsheets/d/1cCQNHQGq9bgUWXt9tZIFszq__L1SrbK6YMADZWFDyoQ/edit?usp=sharing).
 
 ## How to run tests
 

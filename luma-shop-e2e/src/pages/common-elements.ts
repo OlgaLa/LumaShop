@@ -11,9 +11,9 @@ export class CommonElements {
     readonly cardCounterNumber = 'span.counter-number';
     readonly cartLink = 'a.action.showcart';
     readonly cartLinkActive = 'a.action.showcart.active';
-
     readonly errorMessageForPage = 'div.message-error div';
     readonly errorMessageForField = 'div.mage-error';
+    
     readonly errorMessages : Map<string, string> = new Map<string, string>([
         ['page', this.errorMessageForPage],
         ['field', this.errorMessageForField]

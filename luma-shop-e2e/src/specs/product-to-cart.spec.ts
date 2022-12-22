@@ -3,7 +3,7 @@ import { HomePage } from '../pages/home-page';
 import { CommonElements } from '../pages/common-elements';
 import { ProductsPage } from '../pages/products-page';
 
-test.describe('Product page', async () => {
+test.describe('Product', async () => {
 
     let homePage: HomePage;
     let comEl: CommonElements;
@@ -15,7 +15,7 @@ test.describe('Product page', async () => {
       productsPage = new ProductsPage(page);
     });
 
-    test('User can add a product to the cart', async () => {
+    test(': add a product to the cart', async () => {
       const quantity = 2;
       await homePage.openHomePage();
       let products = await productsPage.getAllProductsNames();
@@ -30,7 +30,7 @@ test.describe('Product page', async () => {
       expect(await comEl.getCartCounter()).toBe(quantity.toString());
     }); 
 
-    test('User can not add a product to the cart without selecting size and color', async () => {
+    test(': not add a product to the cart without selecting size and color', async () => {
       
       await homePage.openHomePage();
       let products = await productsPage.getAllProductsNames();
