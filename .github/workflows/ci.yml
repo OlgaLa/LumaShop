@@ -37,7 +37,7 @@ jobs:
       - run : |
           mkdir _site
           echo '<html><body><ul>
-                <h2>Test results for $(date)</h2>
+                <h2>Test results for '$(date)'</h2>
                 <li><a href="api/test">api test results</a></li>
                 <li><a href="web/test-report">web app test results</a></li>
               </ul></body></html>' >> _site/index.html
