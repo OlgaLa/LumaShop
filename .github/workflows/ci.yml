@@ -51,4 +51,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+      - run : |
+          location =  ${{ steps.deployment.outputs.page_url }}
+          echo '## Tests results published' >> $GITHUB_STEP_SUMMARY
+          echo '[GitHub Pages]('$location')'  >> $GITHUB_STEP_SUMMARY
 
