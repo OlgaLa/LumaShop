@@ -6,6 +6,11 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   e2e:
     uses: ./.github/workflows/execute-docker-compose-and-publish-results.yml
@@ -18,3 +23,10 @@ jobs:
     with:
       tests-type: api
       tests-result-path: test-results-api
+
+  deploy_results:
+    needs: 
+      - e2e
+      - api-tests
+    steps:
+      - run: echo 'deployment'
