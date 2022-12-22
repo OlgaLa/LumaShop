@@ -46,7 +46,7 @@ jobs:
          path: _site/api/
       - uses: actions/download-artifact@v3.0.1
         with:
-         name: test-results
+         name: test_results_e2e
          path: _site/web/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
