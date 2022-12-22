@@ -37,7 +37,7 @@ test.describe('Login', async () => {
     expect(await comEl.getPageTitle()).toBe(LOGIN_PAGE_TITLE);
   }); 
 
-  test('User can not login with empty username', async () => {
+  test.skip('User can not login with empty username', async () => {
     await loginPage.login('     ', PASSWORD);
     expect(await comEl.getErrorMessage('field')).toBe(comEl.REQUIRED_FIELD_ERROR_MESSAGE);
     expect(await comEl.getPageTitle()).toBe(LOGIN_PAGE_TITLE);
