@@ -12,11 +12,11 @@ permissions:
   id-token: write
 
 jobs:
-  # e2e:
-  #   uses: ./.github/workflows/execute-docker-compose-and-publish-results.yml
-  #   with:
-  #     tests-type: e2e
-  #     tests-result-path: test-results
+  e2e:
+    uses: ./.github/workflows/execute-docker-compose-and-publish-results.yml
+    with:
+      tests-type: e2e
+      tests-result-path: test-results
 
   api-tests:
     uses: ./.github/workflows/execute-docker-compose-and-publish-results.yml
